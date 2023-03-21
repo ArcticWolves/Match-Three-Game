@@ -35,6 +35,27 @@ namespace ArcticWolves
         #region Builtin Methods
         private void Start()
         {
+            m_star1.SetActive(false);
+            m_star2.SetActive(false);
+            m_star3.SetActive(false);
+
+            // Проверим существует ли ключ сохраненных даных 
+            if(PlayerPrefs.HasKey(m_levelToLoad + "_Star1"))
+            {
+                m_star1.SetActive(true);
+            }
+
+            if (PlayerPrefs.HasKey(m_levelToLoad + "_Star2"))
+            {
+                m_star2.SetActive(true);
+            }
+
+            if (PlayerPrefs.HasKey(m_levelToLoad + "_Star3"))
+            {
+                m_star3.SetActive(true);
+            }
+        }
+
         #endregion
 
         #region Custom Methods
