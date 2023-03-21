@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f9ce3b6dfea9f49998220e69f85846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_roundTime: 5
+  m_roundTime: 60
   m_scoreTarget1: 100
   m_scoreTarget2: 500
   m_scoreTarget3: 1000
