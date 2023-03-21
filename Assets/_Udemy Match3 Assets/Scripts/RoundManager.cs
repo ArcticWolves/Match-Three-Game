@@ -12,6 +12,7 @@
  */
 #endregion
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace ArcticWolves
 {
@@ -122,16 +123,26 @@ namespace ArcticWolves
             {
                 m_uiManager.RoundIsOverTitleText.text = "Congratulations! You earned 3 stars";
                 m_uiManager.PanelStars3.SetActive(true);
+
+                // 0 - isOff 1 - isOn into show Star
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star2", 1);
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star3", 1);
             }
             else if(m_currentScore >= m_scoreTarget2)
             {
                 m_uiManager.RoundIsOverTitleText.text = "Congratulations! You earned 2 stars";
                 m_uiManager.PanelStars2.SetActive(true);
+
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star2", 1);
             }
             else if(m_currentScore >= m_scoreTarget1)
             {
                 m_uiManager.RoundIsOverTitleText.text = "Congratulations! You earned 1 star";
                 m_uiManager.PanelStars1.SetActive(true);
+
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_Star1", 1);
             }
             else
             {

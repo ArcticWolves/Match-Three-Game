@@ -13,6 +13,7 @@
 #endregion
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 namespace ArcticWolves
 {
     public class LevelSelectButton : MonoBehaviour
@@ -32,6 +33,8 @@ namespace ArcticWolves
 
 
         #region Builtin Methods
+        private void Start()
+        {
         #endregion
 
         #region Custom Methods
