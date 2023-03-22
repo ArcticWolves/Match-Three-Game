@@ -13,92 +13,94 @@
 #endregion
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 namespace ArcticWolves
 {
-	public class UIManager : MonoBehaviour
-	{
-		#region Variables
+    public class UIManager : MonoBehaviour
+    {
+        #region Variables
 
-		[SerializeField] private TMP_Text m_timeRemainingText;
-		[SerializeField] private TMP_Text m_scoreValueText;
-		[SerializeField] private GameObject m_roundIsOverScreen;
+        [SerializeField] private TMP_Text m_timeRemainingText;
+        [SerializeField] private TMP_Text m_scoreValueText;
+        [SerializeField] private GameObject m_roundIsOverScreen;
 
-		[SerializeField] private TMP_Text m_finalScoreText;
-		[SerializeField] private TMP_Text m_roundIsOverText;
+        [SerializeField] private TMP_Text m_finalScoreText;
+        [SerializeField] private TMP_Text m_roundIsOverText;
 
-		[SerializeField] private GameObject m_panelStars1;
-		[SerializeField] private GameObject m_panelStars2;
-		[SerializeField] private GameObject m_panelStars3;
+        [SerializeField] private GameObject m_panelStars1;
+        [SerializeField] private GameObject m_panelStars2;
+        [SerializeField] private GameObject m_panelStars3;
+        [SerializeField] private GameObject m_panelPauseScreen;
+
+        private Board m_board;
+        [SerializeField] private string m_levelSelect = "LevelSelect";
+        #endregion
 
 
-		#endregion
+        #region Properties
 
+        /// <summary>
+        /// Панель с тремя звёздами
+        /// </summary>
+        internal GameObject PanelStars3
+        {
+            get { return m_panelStars3; }
+        }
 
-		#region Properties
+        /// <summary>
+        /// Панель с двумя звездами
+        /// </summary>
+        internal GameObject PanelStars2
+        {
+            get { return m_panelStars2; }
+        }
 
-		/// <summary>
-		/// Панель с тремя звёздами
-		/// </summary>
-		internal GameObject PanelStars3
-		{
-			get { return m_panelStars3; }
-		}
-
-		/// <summary>
-		/// Панель с двумя звездами
-		/// </summary>
-		internal GameObject PanelStars2
-		{
-			get { return m_panelStars2; }
-		}
-
-		/// <summary>
-		/// Панель с одной звездой
-		/// </summary>
-		internal GameObject PanelStars1
+        /// <summary>
+        /// Панель с одной звездой
+        /// </summary>
+        internal GameObject PanelStars1
         {
             get { return m_panelStars1; }
         }
 
 
-		/// <summary>
-		/// Текст позволяет сообщить игроку о получении звёзд или конца уровня
-		/// </summary>
-		internal TMP_Text RoundIsOverTitleText
+        /// <summary>
+        /// Текст позволяет сообщить игроку о получении звёзд или конца уровня
+        /// </summary>
+        internal TMP_Text RoundIsOverTitleText
         {
             get { return m_roundIsOverText; }
         }
 
-		/// <summary>
-		/// Текст финальных очков получаемый в конце раунда
-		/// </summary>
-		internal TMP_Text FInalScoreText
+        /// <summary>
+        /// Текст финальных очков получаемый в конце раунда
+        /// </summary>
+        internal TMP_Text FInalScoreText
         {
             get { return m_finalScoreText; }
         }
 
-		/// <summary>
-		/// UI Текстовое поле остатка времени на уровне
-		/// </summary>
-		internal TMP_Text TimeRemainingText
+        /// <summary>
+        /// UI Текстовое поле остатка времени на уровне
+        /// </summary>
+        internal TMP_Text TimeRemainingText
         {
             get { return m_timeRemainingText; }
         }
 
-		/// <summary>
-		/// Текстовое поле количества очков пользователя на UI
-		/// </summary>
-		internal TMP_Text ScoreValueText
+        /// <summary>
+        /// Текстовое поле количества очков пользователя на UI
+        /// </summary>
+        internal TMP_Text ScoreValueText
         {
             get { return m_scoreValueText; }
         }
 
-		/// <summary>
-		/// Панель конца уровня
-		/// </summary>
-		internal GameObject RoundIsOverScreen
+        /// <summary>
+        /// Панель конца уровня
+        /// </summary>
+        internal GameObject RoundIsOverScreen
         {
             get { return m_roundIsOverScreen; }
         }
@@ -109,18 +111,67 @@ namespace ArcticWolves
 
         #region Builtin Methods
 
+        private void Awake()
+        {
+            m_board = FindObjectOfType<Board>();
+        }
+
+
         private void Start()
         {
-			m_panelStars1.SetActive(false);
-			m_panelStars2.SetActive(false);
-			m_panelStars3.SetActive(false);
+            m_panelStars1.SetActive(false);
+            m_panelStars2.SetActive(false);
+            m_panelStars3.SetActive(false);
 
 
-		}
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                QuitFromGame();
+            }
+        }
         #endregion
 
         #region Custom Methods
 
+        public void TryAgain()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void PauseAndUnPause()
+        {
+            if (!m_panelPauseScreen.activeInHierarchy)
+            {
+                m_panelPauseScreen.SetActive(true);
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                m_panelPauseScreen.SetActive(false);
+                Time.timeScale = 1f;
+            }
+        }
+
+        public void ShuffleBoard()
+        {
+            m_board.SuffleBoard();
+
+        }
+
+        public void GoToLevelSelectMenu()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(m_levelSelect);
+        }
+
+        public void QuitFromGame()
+        {
+            AppHelper.Quit();
+        }
 
         #endregion
 

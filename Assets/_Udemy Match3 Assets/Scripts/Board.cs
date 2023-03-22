@@ -484,7 +484,7 @@ namespace ArcticWolves
 		/// Функция позволяет перетасовать доску с изумрудами, в случае если совпадений не обнаружено, 
 		/// и игрок не может найти три совпадения 
 		/// </summary>
-		private void SuffleBoard()
+		internal void SuffleBoard()
         {
 			if(CurrentBoardState != BoardState.Static)
             {
