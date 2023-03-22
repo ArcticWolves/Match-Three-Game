@@ -71,19 +71,22 @@ namespace ArcticWolves
                             // Убедимся что оба этих драгоценных камня существуют и не пусты
                             if(_leftGem & _rightGem != null)
                             {
-                                // сравним и определим совпадают ли Тип камня слева и справа
-                                if(_leftGem.TypeOfGem == _currentGem.TypeOfGem & _rightGem.TypeOfGem == _currentGem.TypeOfGem)
+                                // сравним и определим совпадают ли Тип изумруда слева и справа
+                                if(_leftGem.TypeOfGem == _currentGem.TypeOfGem && _rightGem.TypeOfGem == _currentGem.TypeOfGem)
                                 {
-                                    // если совпадения есть 
-                                    _currentGem.IsMatched = true;
-                                    _leftGem.IsMatched = true;
-                                    _rightGem.IsMatched = true;
+                                    // Проверим Если текущий изумруд не имеет тип камня
+                                    if(_currentGem.TypeOfGem != GemType.Stone)
+                                    {
+                                        // если совпадения есть 
+                                        _currentGem.IsMatched = true;
+                                        _leftGem.IsMatched = true;
+                                        _rightGem.IsMatched = true;
 
-                                    // Отследим совпадения ПО ВЕРТЕКАЛИ и добавим драгоценные камни в список совпадений
-                                    m_currentFindedMatches.Add(_currentGem);
-                                    m_currentFindedMatches.Add(_leftGem);
-                                    m_currentFindedMatches.Add(_rightGem);
-
+                                        // Отследим совпадения ПО ВЕРТЕКАЛИ и добавим драгоценные камни в список совпадений
+                                        m_currentFindedMatches.Add(_currentGem);
+                                        m_currentFindedMatches.Add(_leftGem);
+                                        m_currentFindedMatches.Add(_rightGem);
+                                    }
                                 }
                             }
                         }
@@ -102,15 +105,20 @@ namespace ArcticWolves
                                 // сравним и определим совпадают ли Тип камня СВЕРХУ и СНИЗУ
                                 if (_aboveGem.TypeOfGem == _currentGem.TypeOfGem & _belowGem.TypeOfGem == _currentGem.TypeOfGem)
                                 {
-                                    // если совпадения есть 
-                                    _currentGem.IsMatched = true;
-                                    _aboveGem.IsMatched = true;
-                                    _belowGem.IsMatched = true;
+                                    // Проверим Если текущий изумруд не имеет тип камня
+                                    if (_currentGem.TypeOfGem != GemType.Stone)
+                                    {
+                                        // если совпадения есть 
+                                        _currentGem.IsMatched = true;
+                                        _aboveGem.IsMatched = true;
+                                        _belowGem.IsMatched = true;
 
-                                    // Отследим совпадения ПО ВЕРТЕКАЛИ и добавим драгоценные камни в список совпадений
-                                    m_currentFindedMatches.Add(_currentGem);
-                                    m_currentFindedMatches.Add(_aboveGem);
-                                    m_currentFindedMatches.Add(_belowGem);
+
+                                        // Отследим совпадения ПО ВЕРТЕКАЛИ и добавим драгоценные камни в список совпадений
+                                        m_currentFindedMatches.Add(_currentGem);
+                                        m_currentFindedMatches.Add(_aboveGem);
+                                        m_currentFindedMatches.Add(_belowGem);
+                                    }
                                 }
                             }
                         }

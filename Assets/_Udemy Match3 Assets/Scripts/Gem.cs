@@ -23,7 +23,8 @@ namespace ArcticWolves
 		Red,
 		Yellow,
 		Purple,
-		Bomb
+		Bomb,
+		Stone
     }
 
 	internal class Gem : MonoBehaviour
