@@ -51,8 +51,9 @@ namespace ArcticWolves
 		private bool m_isRandomlyWaryaterGem= true;
 
 		private MatchFinder m_matchFinder = null;
-
-		private RoundManager m_roundManager;
+		private BoardLayout m_boardLayout = null;
+		private Gem[,] m_layoutStore = null;
+		private RoundManager m_roundManager = null;
 
 
 		#endregion
@@ -110,11 +111,13 @@ namespace ArcticWolves
         {
 			m_matchFinder = FindObjectOfType<MatchFinder>();
 			m_roundManager = FindObjectOfType<RoundManager>();
+			m_boardLayout = GetComponent<BoardLayout>();
 		}
 
         private void Start()
         {
 			m_allGems = new Gem[m_width, m_height];
+			m_layoutStore = new Gem[m_width, m_height];
 
 			Setup(m_isRandomlyWaryaterGem, m_isCheckMatches);
 
@@ -136,6 +139,25 @@ namespace ArcticWolves
 
         private void Setup(bool _isRandomVariety, bool _isCheckMatchesOnStart = true)
 		{
+			// Перед настройкой макета доски выполним проверку, если сылка на макет доски
+			if(m_boardLayout != null)
+            {
+				// Если макет присоединен к доске и существует тогда получи кастомизированый макет и сохрани его 
+				m_layoutStore = m_boardLayout.GetLayout();
+
+				// ну, если мы сделаем это c BoardLayout, мы вернем заполненный Gem Array?
+				// Верно, это то что мы хотим чтобы произошло.
+				// Если это так, так зачем нам хранить m_layoutStore, который является пуст?
+
+				// причина, по которой мы это делаем, заключается в том, что мы собираемся сравнить с нашим последним сохраненным массивом изумрудов
+				// и посмотреть, есть ли что - нибудь в нем. И если в нем что - то есть, то мы создадим этот драгоценный камень в том месте, где он есть.
+				// Если в нем ничего нет.
+				// Тогда мы просто оставим и это как случайный драгоценный камень.
+				// Поэтому нам нужно иметь пустое значение по умолчанию, с которым мы можем сравнить на случай, если мы не заполним
+				// это внутри, если здесь не осталось доски.
+
+			}
+
 			for (int x = 0; x < m_width; x++)
 			{
 				for (int y = 0; y < m_height; y++)
@@ -144,34 +166,43 @@ namespace ArcticWolves
 					Vector2Int _pos = new Vector2Int(x, y);
 					int _randomGemIndex = 0;
 
-					// Если нам нужна вариативность камней
-					if (_isRandomVariety)
-					{
-						_randomGemIndex = Random.Range(0, m_gems.Length);
-
-						// Если мы проверяем совпадения во время старта
-						if (_isCheckMatchesOnStart)
+					// проверим если макет не пустой, чтобы создать собственный дизаин позицый изумрудов на доске
+					if(m_layoutStore[x,y] != null)
+                    {
+						SpawnGem(m_layoutStore[x, y], _pos, m_isSlideWhenSpawn);
+                    }
+                    else // Если макет пуст, создай изумруды без уникального макета
+                    {
+						// Если нам нужна вариативность камней
+						if (_isRandomVariety)
 						{
+							_randomGemIndex = Random.Range(0, m_gems.Length);
 
-							// Имея в списке только 2 типа камня, итерация проверялась бы вечно
-							// он всегда будет пытаться выбрать один и тод же камень вечно
-							int _whileIteration = 100; // жызненый цикл While, чтобы прекратить бсконечную итерацию совпадения
+							// Если мы проверяем совпадения во время старта
+							if (_isCheckMatchesOnStart)
+							{
 
-							// Позиция и драгоценный камень из масива для проверки совпадения. 
-							while (MatchesAt(_pos, m_gems[_randomGemIndex]) && _whileIteration < 100)
-                            {
-								// Если мы нашли совпадение камней, перещитаем рандомное число, и таким образом выберим другой камень из массива
-								_randomGemIndex = Random.Range(0, m_gems.Length);
+								// Имея в списке только 2 типа камня, итерация проверялась бы вечно
+								// он всегда будет пытаться выбрать один и тод же камень вечно
+								int _whileIteration = 100; // жызненый цикл While, чтобы прекратить бсконечную итерацию совпадения
 
-								
-								_whileIteration++; // Процесс итерирования цикла
+								// Позиция и драгоценный камень из масива для проверки совпадения. 
+								while (MatchesAt(_pos, m_gems[_randomGemIndex]) && _whileIteration < 100)
+								{
+									// Если мы нашли совпадение камней, перещитаем рандомное число, и таким образом выберим другой камень из массива
+									_randomGemIndex = Random.Range(0, m_gems.Length);
+
+
+									_whileIteration++; // Процесс итерирования цикла
+								}
 							}
 						}
-					}
+
+						SpawnGem(m_gems[_randomGemIndex], _pos, m_isSlideWhenSpawn);
+					} 
 
 					SpawnBoard(m_backgroundTilePrefab, _pos);
-					SpawnGem(m_gems[_randomGemIndex], _pos, m_isSlideWhenSpawn);
-					
+
 				}
 			}
 
