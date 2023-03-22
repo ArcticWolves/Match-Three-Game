@@ -291,6 +291,20 @@ namespace ArcticWolves
 					// Позиция спавна эффекта разрушения.
 					Vector2 _spawnEffect = new Vector2(_pos.x, _pos.y);
 
+					// Воспроизведем звук разрушения в зависимости если тип изумруда бомба, камень или обычный изумруд
+					if(m_allGems[_pos.x, _pos.y].TypeOfGem == GemType.Bomb)
+                    {
+						SFXManager.InstanceSFXManager.PlayExplode();
+                    }
+					else if (m_allGems[_pos.x, _pos.y].TypeOfGem == GemType.Stone)
+					{
+						SFXManager.InstanceSFXManager.PlayStoneBreake();
+					}
+                    else
+                    {
+						SFXManager.InstanceSFXManager.PlayGemBrake();
+					}
+
 					// Создадим эфект частиц разрушения, который в следствии сам себя уничтожет при павершении анимации
 					Instantiate(m_allGems[_pos.x, _pos.y].DestroyEffect, _spawnEffect, Quaternion.identity);
 					// Уничтожем игровой обьект в конкретной позиции

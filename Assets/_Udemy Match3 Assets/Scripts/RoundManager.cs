@@ -149,6 +149,8 @@ namespace ArcticWolves
                 m_uiManager.RoundIsOverTitleText.text = "Oh no, No stars for you! Try again?";
             }
 
+            SFXManager.InstanceSFXManager.PlayRoundOver();
+
         }
 
         #endregion
