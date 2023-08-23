@@ -137,7 +137,11 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
+<<<<<<< Updated upstream
   bundleVersion: 0.0.6a
+=======
+  bundleVersion: 0.0.5a
+>>>>>>> Stashed changes
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -472,10 +476,14 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
+<<<<<<< Updated upstream
   m_BuildTargetBatching:
   - m_BuildTarget: WebGL
     m_StaticBatching: 0
     m_DynamicBatching: 1
+=======
+  m_BuildTargetBatching: []
+>>>>>>> Stashed changes
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: MacStandaloneSupport
@@ -796,7 +804,11 @@ PlayerSettings:
   webGLMemoryLinearGrowthStep: 16
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
+<<<<<<< Updated upstream
   webGLPowerPreference: 0
+=======
+  webGLPowerPreference: 2
+>>>>>>> Stashed changes
   scriptingDefineSymbols: {}
   additionalCompilerArguments: {}
   platformArchitecture: {}

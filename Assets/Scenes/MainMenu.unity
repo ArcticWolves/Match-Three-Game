@@ -249,7 +249,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< Updated upstream
   m_RootOrder: 5
+=======
+  m_RootOrder: 3
+>>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &670012396
 GameObject:
@@ -261,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670012397}
   - component: {fileID: 670012398}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Gradient_BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,8 +280,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670012396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 3, z: 1}
+=======
+  m_LocalPosition: {x: 0.85, y: 12.26, z: 0}
+  m_LocalScale: {x: 389.46606, y: 250.35811, z: 1}
+>>>>>>> Stashed changes
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5305,8 +5314,8 @@ Canvas:
   m_GameObject: {fileID: 880328865}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1686271555}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -5334,6 +5343,7 @@ RectTransform:
   - {fileID: 1432366122}
   - {fileID: 1506439998}
   - {fileID: 1053881721}
+  - {fileID: 1661499822}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10290,11 +10300,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3000294954204782929, guid: d8b97a018f0a7d149a294aad00a3130c, type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< Updated upstream
       value: -27
       objectReference: {fileID: 0}
     - target: {fileID: 3000294954204782929, guid: d8b97a018f0a7d149a294aad00a3130c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -766
+=======
+      value: 472
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000294954204782929, guid: d8b97a018f0a7d149a294aad00a3130c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -411.49
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3000294954204782929, guid: d8b97a018f0a7d149a294aad00a3130c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15200,11 +15218,19 @@ RectTransform:
   m_Father: {fileID: 880328869}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0.0000019073, y: -54}
   m_SizeDelta: {x: 983.713, y: 443.888}
   m_Pivot: {x: 0.5, y: 1}
+=======
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -382.5, y: 373.43}
+  m_SizeDelta: {x: 765.01, y: 280.81}
+  m_Pivot: {x: 0.5, y: 0.5}
+>>>>>>> Stashed changes
 --- !u!114 &1432366123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15252,12 +15278,21 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
+<<<<<<< Updated upstream
   m_fontSize: 134.7
   m_fontSizeBase: 134.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 12
   m_fontSizeMax: 24
+=======
+  m_fontSize: 166.3
+  m_fontSizeBase: 166.3
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 18
+>>>>>>> Stashed changes
   m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -15330,9 +15365,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661499821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -9720}
+  m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1856483140}
@@ -15340,8 +15375,13 @@ Transform:
   - {fileID: 1667566768}
   - {fileID: 966569848}
   - {fileID: 864276790}
+<<<<<<< Updated upstream
   m_Father: {fileID: 0}
   m_RootOrder: 4
+=======
+  m_Father: {fileID: 880328869}
+  m_RootOrder: -1
+>>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1667566767
 GameObject:
@@ -25203,11 +25243,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3000294954204782929, guid: d8b97a018f0a7d149a294aad00a3130c, type: 3}
       propertyPath: m_AnchoredPosition.x
+<<<<<<< Updated upstream
       value: -27
       objectReference: {fileID: 0}
     - target: {fileID: 3000294954204782929, guid: d8b97a018f0a7d149a294aad00a3130c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -402
+=======
+      value: 472
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000294954204782929, guid: d8b97a018f0a7d149a294aad00a3130c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -162
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3000294954204782929, guid: d8b97a018f0a7d149a294aad00a3130c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
