@@ -46,7 +46,7 @@ namespace ArcticWolves
         {
             if (Application.isPlaying)
             {
-                Application.Quit();
+                Application.OpenURL("https://www.arcticwolves.games/");
             }
         }
 
