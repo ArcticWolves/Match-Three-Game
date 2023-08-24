@@ -35,7 +35,6 @@ namespace ArcticWolves
 
         private Board m_board;
         [SerializeField] private string m_levelSelect = "LevelSelect";
-        internal static string m_webplayerQuitURL = "https://arcticwolves.games";
         #endregion
 
 
@@ -171,17 +170,7 @@ namespace ArcticWolves
 
         public void QuitFromGame()
         {
-#if (UNITY_EDITOR || DEVELOPMENT_BUILD)
-            Debug.Log(this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
-#endif
-
-#if (UNITY_EDITOR)
-            UnityEditor.EditorApplication.isPlaying = false;
-#elif (UNITY_STANDALONE) 
-            Application.Quit();
-#elif (UNITY_WEBGL)
-            Application.OpenURL("m_webplayerQuitURL");
-#endif
+            AppHelper.Quit();
         }
 
         #endregion
