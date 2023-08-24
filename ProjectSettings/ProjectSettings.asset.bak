@@ -135,12 +135,16 @@ PlayerSettings:
   vulkanEnablePreTransform: 0
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
+<<<<<<< HEAD
+  loadStoreDebugModeEnabled: 0
+=======
   m_SupportedAspectRatios:
     4:3: 1
     5:4: 1
     16:10: 1
     16:9: 1
     Others: 1
+>>>>>>> parent of afacc3c (Canvas Fixed)
   bundleVersion: 0.0.5a
   preloadedAssets: []
   metroInputSource: 0
@@ -475,7 +479,10 @@ PlayerSettings:
       m_Kind: 0
       m_SubKind: 
   m_BuildTargetBatching: []
-  
+<<<<<<< HEAD
+  m_BuildTargetShaderSettings: []
+=======
+>>>>>>> parent of afacc3c (Canvas Fixed)
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: MacStandaloneSupport
     m_GraphicsJobs: 0
@@ -790,7 +797,10 @@ PlayerSettings:
   webGLMemoryLinearGrowthStep: 16
   webGLMemoryGeometricGrowthStep: 0.2
   webGLMemoryGeometricGrowthCap: 96
-  
+<<<<<<< HEAD
+  webGLPowerPreference: 2
+=======
+>>>>>>> parent of afacc3c (Canvas Fixed)
   scriptingDefineSymbols: {}
   additionalCompilerArguments: {}
   platformArchitecture: {}
